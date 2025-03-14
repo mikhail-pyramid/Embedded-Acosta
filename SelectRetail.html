@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Portal</title>
+    
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- JS-Cookie Library -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    
+<script>document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".login-body").classList.add("active");
+});
+</script>
+    <style>
+      
+      
+        /* General body styling with fade-in effect */
+        .login-body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #021318;
+            opacity: 0;
+            
+            overflow: hidden;
+           
+             width: 100%; 
+            transform: translateY(100%);
+            transition: transform 1.5s ease-in-out, opacity 2s ease-out;
+            
+        }
+        .login-body.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+             /* Hero image background styling */
+        .background-image {
+            background-image: url("img/LoginPage.jpg");
+            background-color: #17d3ec;
+            height: 1000px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+       
+        .menu:hover img {
+    transform: scale(1.12);
+    transition: transform 0.3s ease-in-out;
+}
+img:hover {
+    transform: scale(1.2); /* Increase the size by 20% */
+    transition: transform 0.3s ease-in-out;
+}
+     
+    </style>
+
+    <script>
+        // Authentication function to get user token and handle cookies
+        function GetAuthentication() {
+            var userName = $("#uname").val();
+            var password = $("#upassword").val();
+            var creds = { data: { userName: userName, password: password, domain: document.domain } };
+
+            $.ajax({
+                type: "POST",
+                url: "https://pyramidna.pyramidanalytics.com/API2/auth/authenticateUserEmbed",
+                data: JSON.stringify(creds)
+            })
+            .done(function(token) {
+                Cookies.set('PyramidEmbeddedAuth', token);
+                $.ajax({
+                    type: "POST",
+                    url: "https://pyramidna.pyramidanalytics.com/API2/auth/authenticateUser",
+                    data: JSON.stringify(creds)
+                })
+                .done(function(token) {
+                    Cookies.set('PyramidAuth', token);
+                    window.location = "Index.html";
+                });
+            });
+        }
+
+        // Check for existing authentication cookie on page load
+        if (!Cookies.get("PyramidEmbeddedAuth")) {
+            // Uncomment the line below to redirect to login page if not authenticated
+            // window.location = "login.html";
+        }
+    </script>
+</head>
+
+<body class="login-body" onload="document.body.style.opacity='1'" style="margin: 0; position: relative; height: 50%;">
+
+    <!-- background Image Container -->
+    <div class="background-image" style="padding-top: 200px;">
+        <!-- Login Box -->
+        <!-- <div id="box" style="width: 350px; box-shadow: 1px 1px 1px 1pt; height: 250px; margin: 0 auto; padding-top: 20px; padding-bottom: 180px; border-style: outset; border-radius: 10px; color: white;"> -->
+            
+            <!-- Logo -->
+            <div style="position: absolute; top: 0; right: 0;">
+                <img src="img/PyramidLogo.svg" alt="Logo" style="width: 150px; margin: 5px; border-radius: 3px; position: absolute; top: 0; right: 0;">
+            </div>
+            <script>
+                const text = "Amplify your brand presence at:"; // Change this text
+                let i = 0;
+        
+                function typeWriter() {
+                    if (i < text.length) {
+                        document.getElementById("typewriter").innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50); // Adjust speed (milliseconds)
+                    }
+                }
+        
+                window.onload = function() {
+                        setTimeout(typeWriter,500);
+                 };
+                  // Start animation on page load
+            </script>
+            
+
+            <!-- Welcome Message -->
+          
+            
+            <div class="logos" style="align-items: center; text-align: center; padding-top: 200;"  >
+
+                <p id="typewriter" style="font-family: 'Courier New', Courier, monospace; color: white; padding-left: 90px; font-size: 30px;"></p>
+                <ul class="list-unstyled components mb-5">
+                <menu><li>
+                <a  href="WalmartDashboardGold.html">
+                  <img src="img/Stop_&_Shop_logo.svg.png" alt="Walmart Logo" width="380" height="120">
+                </a>
+                
+              </li>
+              </menu>
+
+            <menu>
+              <li>
+                <a href="https://www.example.com">
+                  <img src="img/Meijer_logo.svg.png" alt="Clickable Image" width="300" height="100">
+              </a></li>
+              </menu>
+              <menu>
+              <li>
+                <a href="https://www.example.com">
+                  <img src="img/publix.png" alt="Clickable Image" width="240" height="60">
+              </a>
+            </li>
+        </menu>
+        </ul>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Portal</title>
+    
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- JS-Cookie Library -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    
+<script>document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".login-body").classList.add("active");
+});
+</script>
+    <style>
+        /* Style for placeholders */
+        ::placeholder {
+            color: blue;
+            opacity: 0.5;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* General body styling with fade-in effect */
+        .login-body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #021318;
+            
+            overflow: hidden;
+           
+            width: 0;
+            transition: width 1.5s ease-in-out, opacity 2s ease-out;;
+            
+        }
+        .login-body.active {
+            width: 100%;
+            opacity: 1;
+        }
+
+        /* General input styling */
+        .login-input {
+            font-size: 15px;
+        }
+
+        /* Hero image background styling */
+        .background-image {
+            background-image: url("img/LoginPage.jpg");
+            background-color: #17d3ec;
+            height: 1000px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Button styling */
+        .login-button {
+            cursor: pointer;
+            border: 0;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 10px;
+            width: 200px;
+            padding: 10px 0;
+            box-shadow: 0 0 2px white;
+            transition: 0.7s;
+        }
+        /* Button hover effect */
+        .login-button:hover {
+            color: rgb(1, 12, 14);
+            box-shadow: 0 0 20px rgba(25, 1, 37, 0.363);
+            background-color: rgba(62, 2, 90, 0.767);
+            color: white;
+        }
+
+        /* Animation for the login box */
+        /* @keyframes mymove {
+            from { bottom: -500px; }
+            to { bottom: -10px; }
+        } */
+    </style>
+
+    <script>
+        // Authentication function to get user token and handle cookies
+        function GetAuthentication() {
+            var userName = $("#uname").val();
+            var password = $("#upassword").val();
+            var creds = { data: { userName: userName, password: password, domain: document.domain } };
+
+            $.ajax({
+                type: "POST",
+                url: "https://pyramidna.pyramidanalytics.com/API2/auth/authenticateUserEmbed",
+                data: JSON.stringify(creds)
+            })
+            .done(function(token) {
+                Cookies.set('PyramidEmbeddedAuth', token);
+                $.ajax({
+                    type: "POST",
+                    url: "https://pyramidna.pyramidanalytics.com/API2/auth/authenticateUser",
+                    data: JSON.stringify(creds)
+                })
+                .done(function(token) {
+                    Cookies.set('PyramidAuth', token);
+                    window.location = "SelectRetail.html";
+                });
+            });
+        }
+
+        // Check for existing authentication cookie on page load
+        if (!Cookies.get("PyramidEmbeddedAuth")) {
+            // Uncomment the line below to redirect to login page if not authenticated
+            // window.location = "login.html";
+        }
+    </script>
+</head>
+
+<body class="login-body" onload="document.body.style.opacity='1'" style="margin: 0; position: relative; height: 50%;">
+
+    <!-- background Image Container -->
+    <div class="background-image" style="padding-top: 50px;">
+        <!-- Login Box -->
+        <!-- <div id="box" style="width: 350px; box-shadow: 1px 1px 1px 1pt; height: 250px; margin: 0 auto; padding-top: 20px; padding-bottom: 180px; border-style: outset; border-radius: 10px; color: white;"> -->
+            
+            <!-- Logo -->
+            <div style="text-align: center; margin-bottom: 10px; position: center; padding-top: 100px;">
+                <img src="img/PyramidLogo.svg" alt="Logo" style="width: 300px; margin: 5px; border-radius: 3px;">
+            </div>
+            <script>
+                const text = "Fuel Growth Through Data..."; // Change this text
+                let i = 0;
+        
+                function typeWriter() {
+                    if (i < text.length) {
+                        document.getElementById("typewriter").innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50); // Adjust speed (milliseconds)
+                    }
+                }
+        
+                window.onload = function() {
+                        setTimeout(typeWriter,1000);
+                 };
+                  // Start animation on page load
+            </script>
+            
+
+            <!-- Welcome Message -->
+          
+
+            <!-- Profile Image -->
+            <!-- <div style="text-align: center; margin-bottom: 20px;">
+                <img src="img/Faceshot.jpg" alt="Profile Image" style="width: 100px; height: 100px; margin: 5px; border-radius: 90px;">
+            </div> -->
+            
+            <!-- Username and Password Fields -->
+            <div style="text-align: center; padding-top: 80px;">
+                <input class="login-input" type="text" id="uname" placeholder="Username" style="width: 200px; height: 30px; border-radius: 6px; margin-bottom: 10px;">
+                <input class="login-input" type="password" id="upassword" placeholder="Password" style="width: 200px; height: 30px; border-radius: 6px; margin-bottom: 10px;">
+            </div>
+            
+            <!-- Login Button -->
+            <div style="text-align: center;">
+                <button class="login-button" type="button" onclick="GetAuthentication()" style="font-family: 'Courier New', Courier, monospace; background-image: white;">Login</button>
+            </div>
+            <p id="typewriter" style="text-align: center; font-family: 'Courier New', Courier, monospace; color: white;"></p>
+        </div>
+    </div>
+
+</body>
+</html>

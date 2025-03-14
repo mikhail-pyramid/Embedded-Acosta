@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stop&Shop Portal</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://pyramidna.pyramidanalytics.com/no-shell/pyramid-embed-js.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"/>
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+
+  </head>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".login-body").classList.add("active");
+});
+</script>
+  <style>
+      .login-body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #021318;
+            opacity: 0;
+            
+            overflow: hidden;
+           
+             width: 100%; 
+            transform: translateX(100%);
+            transition: transform 1.5s ease-in-out, opacity 2s ease-out;
+            
+        }
+        .login-body.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+
+      .navbar {
+        overflow: hidden;
+        background-color: #27001d;
+        position: fixed;
+        top: 0;
+        padding-left:80px;
+        width: 100%;
+        height: 50px;
+      }
+
+      .navbar span:hover {
+      
+              font-stretch: ultra-expanded;
+              
+          font-size: 1.5em; /* Increases text size on hover */
+          transform: scale(1.5);
+          transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+   
+
+
+      .navbar img:hover {
+        background: rgba(1, 117, 63, 0.356);
+        color: #0668f0;
+        border-radius:10px ;
+      }
+
+      .main {
+        padding: 16px;
+        margin-top: 30px;
+        height: 90px; /* Used in this example to enable scrolling */
+
+      }
+      </style>
+  <style>
+       menu:hover {
+      background-color: #27001d;
+      border-color: #007bff;
+      cursor: pointer;
+      font-size: 12px;
+      transition: font-size 0.5s ease;
+      border-radius: 10px;
+        }
+        .menu:hover img {
+    transform: scale(1.12);
+    transition: transform 0.3s ease-in-out;
+}
+img:hover {
+    transform: scale(1.2); /* Increase the size by 20% */
+    transition: transform 0.3s ease-in-out;
+}
+  </style>
+
+
+  <body class='login-body' onload="document.body.style.opacity='1'" style="background: white;" >
+    <div class="navbar" >
+  
+      <img src="img/PyramidLogo.svg" alt="pyramid" width="100"; style="border-radius:3px;">
+      <a href="Silver"><span style="font-family: 'Courier New'; color: white;  top:10px; font-size:medium; position: absolute;  font-weight: lighter;">Silver </span></a>
+      <a href="WalmartDashboardGold.html"><span style="font-family: 'Courier New'; color: white; text-decoration: underline; top:10px; font-size:medium; position: absolute;  font-weight: lighter;">Gold</span></a>
+      <a href="WalmartDashboardPlatinum.html"><span style="font-family: 'Courier New'; color: white;  top:10px; font-size:medium; position: absolute;  font-weight: lighter;"> Platinum</span></a>
+      <a> <span style="font-family: 'Courier New'; color: white; font-size:medium; position: absolute;  right: 10px; top: 10px; font-weight: lighter;">Welcome Mikhail</span></a>
+      <!-- <img src="img/publix.png" width="120" height="30">
+      <img src="img/Meijer_logo.svg.png" width="120" height="50">
+      <a href="https://www.example.com">
+        <img src="img/Walmart_logo.svg.png" alt="Clickable Image" width="200" height="50">
+    </a> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const text = "The Decision Engine...";
+          let i = 0;
+          const speed = 100; // Typing speed in milliseconds
+          function typeWriterEffect() {
+              if (i < text.length) {
+                  document.getElementById("typeText").innerHTML += text.charAt(i);
+                  i++;
+                  setTimeout(typeWriterEffect, speed);
+              }
+          }
+          typeWriterEffect();
+      });
+  </script>
+      
+   
+   </div>
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar" >
+        <div class="custom-menu" >
+          <button type="button" id="sidebarCollapse" class="btn btn-primary" >
+            <i class="fa fa-bars" style="color: #27001d;"></i>
+           <span class="sr-only" style="color: #27001d;" >Toggle Menu</span>
+          </button>
+        </div>
+        <div class="p-4" >
+          <img src="img/PyramidLogo.svg" alt="pyramid" width="250px" height="60" style="border-radius:10px;">
+        </div>
+        <div class="p-4" >
+          <ul class="list-unstyled components mb-5">
+            <!-- <li class="active">
+              <a href="Index.html" style="color: white; font-family: 'Courier New'"
+                ><span class="fa fa-home mr-1"></span> Home</a>
+            </li> -->
+            <li>
+              <a id="typeWriter" href="" >
+                <span id="typeText" style="font-family: 'Courier New', Courier, monospace; color: white; font-size:large;"></span></a>
+            </li>
+              <menu>
+              <a href="Standard-Reports.html" style="color: white; font-family: 'Courier New'"
+                ><span class=""></span></a>
+            </menu>
+            <menu>
+              <li>
+            <a href="https://www.example.com">
+              <img src="img/Stop_&_Shop_logo.svg.png" alt="Clickable Image" width="200" height="75">
+          </a>
+          </li>
+        </menu>
+        
+            <menu>
+              <li>
+              <a href="https://www.example.com">
+                <img src="img/Meijer_logo.svg.png" alt="Clickable Image" width="150" height="50">
+            </a></li>
+          
+          
+              <!-- <a href="Dashboards.html" style="color: white; font-family: 'Courier New'"
+                ><span class="fa fa-tasks mr-2"></span>Dashboards</a> -->
+            </menu>
+           
+            <menu>
+              <li>
+              <a href="https://www.example.com">
+                <img src="img/publix.png" alt="Clickable Image" width="120" height="30">
+            </a>
+          </li>
+              <!-- <a href="Hub.html" style="color: white; font-family: 'Courier New'"
+                ><span class="fa fa-puzzle-piece mr-2"></span>Analytics Hub </a> -->
+            </menu>
+            <menu>
+              <!-- <a href="WhiteLabel.html" style="color: white; font-family: 'Courier New'"
+                ><span class="fa fa-pie-chart mr-2"></span>WhiteLabel </a> -->
+            </menu>
+           
+           
+            
+          </ul>
+        
+          
+        </div>
+        
+      </nav>
+    
+
+      <div id="content" class="p-4 p-md-5 pt-5" style="width:100%;  height: 600px;">
+        <div data-id="10c0032b-529f-44d3-bddf-458ddf1e808f" data-type="storyboard" class="pyramid-embed pyramid-auto" style="width:100wv ; height:90vh; padding-top: 10px;" data-host="https://pyramidna.pyramidanalytics.com"></div>
+      </div>
+      <script type="text/javascript">
+        (function() {
+
+        var img = document.getElementById('container').firstChild;
+        img.onload = function() {
+            if(img.height > img.width) {
+                img.height = '100%';
+                img.width = 'auto';
+            }
+        };
+
+        }());
+        </script>
+         <script>
+
+          if (!Cookies.get("PyramidEmbeddedAuth")) {
+                  window.location="login.html";
+          } 
+  
+     </script>
+      <!-- Page Content  -->
+       
+      <!-- <div>  
+        <video autoplay width="1000" height="460" controls style="padding-top: 100px;">
+          <source src="img/vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      
+      </div> -->
+      <!-- <div id="content" class="p-4 p-md-5 pt-5"> -->
+        
+        <!-- <div id="container" style="border: white;">
+
+          <iframe src="img/SplashPage.htm" width="100%" height="800px" title="Example Website" style="padding-top: 50px; zoom: 1.3; border: white;"></iframe>
+             </div> -->
+        <!-- <video autoplay width="1000" height="460" controls style="padding-top: 100px;">
+          <source src="img/vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        -->
+
+   
+  
+       
+          <!-- </div>
+          </div> -->
+        <!-- </div> -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Embedding Dashboards</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://pyramidna.pyramidanalytics.com/no-shell/pyramid-embed-js.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"/>
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <body>
+      <style>
+       body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  padding-left:80px;
+  width: 100%;
+  height: 80px;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: blue ;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+.navbar a:hover {
+  background: rgba(1, 117, 63, 0.356);
+  color: #0668f0;
+  border-radius:10px ;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 90px; /* Used in this example to enable scrolling */
+
+}
+  </style>
+ <style>
+  menu:hover {
+ background-color: white;
+ border-color: #007bff;
+ cursor: pointer;
+ font-size: 18px; 
+  transition: font-size 0.3s ease;
+ border-radius: 10px;
+   }
+
+</style>
+       
+  <div class="navbar" >
+    
+     <img src="img/Logo.png" alt="pyramid" width="200px" height="60" style="border-radius:3px">
+     <a href="">Solutions</a>
+     <a href="">Insights </a>
+     <a href="">News</a>
+  
+  
+    <a href="#news"> </a>
+  
+  
+  </div>
+  <body style="background: white;" ></body>
+       <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar" >
+        <div class="custom-menu" >
+          <button type="button" id="sidebarCollapse" class="btn btn-primary" >
+            <i class="fa fa-bars" style="color: blue;"></i>
+            <span class="sr-only" style="color: blue;" >Toggle Menu</span>
+          </button>
+        </div>
+        <div class="p-4" >
+          <img src="img/Logo.png" alt="pyramid" width="200" height="60" style="border-radius:10px">
+        </div>
+      <div class="p-4" >
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="Index.html" style="color: blue; font-weight: bold;"
+              ><span class="fa fa-home mr-1"></span> Home</a>
+          </li>
+          <li>
+            <a href=""style="color: blue;  font-weight: bold;"
+              ><span class="fa fa-pie-chart mr-1"></span>My Reports</a>
+          </li>
+            <menu>
+            <a href="Standard-Reports.html" style="color: blue; "
+              ><span class="fa fa-file-text-o mr-2"></span>Reports</a>
+          </menu>
+          <menu>
+            <a href="Dashboards.html" style="color: blue;"
+              ><span class="fa fa-tasks mr-2"></span>Dashboards</a>
+          </menu>
+          <menu>
+            <a href="Hub.html" style="color: blue;"
+              ><span class="fa fa-puzzle-piece mr-2"></span>Analytics Hub </a>
+          </menu>
+          <menu>
+            <a href="WhiteLabel.html" style="color: blue;"
+              ><span class="fa fa-pie-chart mr-2"></span>WhiteLabel </a>
+          </menu>
+          <menu>
+         
+          
+        </ul>
+        </div>
+      </nav>
+      <!-- Page Content  -->
+      <script>
+
+        if (!Cookies.get("PyramidEmbeddedAuth")) {
+                window.location="login.html";
+        } 
+
+   </script>
+
+        <div id="content" class="p-4 p-md-5 pt-5" style="width:100%;">
+          <div data-id="2f3d30f2-25e1-4b39-86eb-ba70eaeba14a" data-type="storyboard" class="pyramid-embed pyramid-auto"style="width:100% ;height:830px;padding-top:40px;" data-host="https://pyramidna.pyramidanalytics.com"></div>
+        </div>
+     
+        </div>
+        </div>
+      </div>
+     
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
